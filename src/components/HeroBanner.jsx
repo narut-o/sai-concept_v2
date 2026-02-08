@@ -1,6 +1,6 @@
 import "./HeroBanner.css";
 
-export default function HeroBanner({ icon, title, subtitle, banner }) {
+export default function HeroBanner({ title, subtitle, banner }) {
   return (
     <div className="cat-banner">
       <div
@@ -9,7 +9,7 @@ export default function HeroBanner({ icon, title, subtitle, banner }) {
       >
         <div className="cat-banner-text">
           <h1>
-            {icon} {title}
+            {title}
           </h1>
           <p>{subtitle}</p>
         </div>

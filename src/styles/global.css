@@ -24,11 +24,16 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: "DM Sans", sans-serif;
   background: var(--lt);
   color: var(--tx);
   -webkit-font-smoothing: antialiased;
+}
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .app {

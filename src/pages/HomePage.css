@@ -1,174 +1,267 @@
+/* ================= ROOT SAFETY ================= */
+
+* {
+  box-sizing: border-box;
+}
+
 /* ================= HERO ================= */
 
-.hero-light {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  min-height: 420px;
-
-  padding: 70px 6%;
-  background: #ffffff;
+.hero {
+  max-width: 1280px;
+  margin: clamp(16px, 3vw, 32px) auto;
+  padding: 0 clamp(16px, 4vw, 32px);
 }
 
-/* LEFT */
+.hero-main {
+  position: relative;
+  border-radius: var(--rl);
+  padding: clamp(28px, 5vw, 56px);
+  overflow: hidden;
+  min-height: clamp(280px, 45vw, 420px);
 
-.hero-left {
+  background: linear-gradient(135deg, #fff5e6 0%, #ffe8c8 100%);
+}
+
+/* ================= HERO SLIDER ================= */
+
+.hero-slider {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: clamp(40%, 45vw, 48%);
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-slider-track {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 520px;
+  height: 100%;
+  transition: transform 1.2s cubic-bezier(0.65,0,0.35,1);
 }
 
-.hero-badge {
+.hero-slider-track img {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+
+  animation: cinematicZoom 20s ease-in-out infinite alternate;
+}
+
+/* ================= GRADIENT PROTECTION ================= */
+
+.hero-main::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to right,
+    rgba(255,245,230,0.75) 0%,
+    rgba(255,245,230,0.55) 25%,
+    rgba(255,245,230,0.25) 45%,
+    transparent 70%
+  );
+
+  z-index: 1;
+}
+
+/* ================= HERO CONTENT ================= */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: clamp(320px, 45vw, 560px);
+}
+
+/* ================= TEXT ================= */
+
+.hero-tag {
+  background: var(--pr);
+  color: white;
+  padding: 6px 16px;
+  border-radius: 50px;
+  font-size: 12px;
+  margin-bottom: 18px;
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-
-  background: #fff3e8;
-  color: #ff7a00;
-
-  font-size: 13px;
-  margin-bottom: 16px;
 }
 
 .hero-title {
-  font-size: clamp(36px,4vw,52px);
-  font-weight: 700;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 4vw, 52px);
   line-height: 1.1;
-
   margin-bottom: 16px;
-  color: #111;
 }
 
 .hero-title span {
-  color: #ff7a00;
+  color: var(--ac);
 }
 
 .hero-desc {
-  font-size: 16px;
-  color: #555;
+  font-size: clamp(14px, 1.2vw, 18px);
+  color: var(--txl);
+  margin-bottom: 26px;
   line-height: 1.6;
-  margin-bottom: 24px;
+}
+.hero-main {
+  overflow: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
 }
 
-/* BUTTONS */
+/* ================= BUTTONS ================= */
 
 .hero-actions {
   display: flex;
-  gap: 14px;
+  gap: clamp(10px, 1.5vw, 18px);
   flex-wrap: wrap;
 }
 
-/* WhatsApp Primary */
-
 .hero-cta {
-  padding: 10px 22px;
-  border-radius: 10px;
-
-  background: #ff7a00;
+  background: var(--ac);
   color: white;
-
+  padding: clamp(10px, 1.2vw, 16px) clamp(20px, 2vw, 34px);
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-
-  transition: all 0.25s ease;
+  font-size: clamp(13px, 1vw, 16px);
 }
-
-.hero-cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255,122,0,0.25);
-}
-
-/* About Secondary */
 
 .hero-about-btn {
-  padding: 10px 22px;
-  border-radius: 10px;
-
-  border: 1.5px solid #ff7a00;
-  color: #ff7a00;
-
+  border: 2px solid #111;
+  color: #111;
+  padding: clamp(10px, 1.2vw, 16px) clamp(18px, 2vw, 30px);
+  border-radius: 50px;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-
-  transition: all 0.25s ease;
+  font-size: clamp(13px, 1vw, 16px);
 }
 
-.hero-about-btn:hover {
-  background: #ff7a00;
-  color: white;
+/* ================= BRAND TICKER ================= */
 
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(255,122,0,0.2);
-}
-
-/* RIGHT */
-
-.hero-right {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hero-image {
+.brand-ticker {
   width: 100%;
-  max-width: 520px;
-  height: 340px;
+  max-width: 100%;
 
-  object-fit: cover;
-  border-radius: 16px;
+  overflow: hidden;
 
-  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  padding: clamp(16px, 2vw, 32px) 0;
 
-  transition: opacity 0.4s ease;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
 }
 
-/* ================= SECTION ================= */
+
+.brand-track {
+  display: flex;
+  gap: clamp(40px, 6vw, 100px);
+  width: max-content;
+
+  animation: ticker 45s linear infinite;
+}
+
+.brand-item img {
+  height: clamp(34px, 3vw, 60px);
+}
+
+/* ================= SECTIONS ================= */
 
 .section {
-  padding: 70px 6%;
-  background: #fafafa;
+  max-width: 1280px;
+  margin: auto;
+  padding: clamp(28px, 5vw, 60px) clamp(16px, 4vw, 32px);
 }
 
 .section-header {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
+  align-items: center;
+  margin-bottom: clamp(18px, 3vw, 36px);
 }
 
 .section-title {
-  font-size: 26px;
-  font-weight: 600;
-  color: #111;
+  font-size: clamp(20px, 2vw, 30px);
 }
 
 .section-count {
-  font-size: 14px;
-  color: #777;
+  font-size: clamp(12px, 1vw, 16px);
 }
 
-/* ================= GRID ================= */
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: clamp(14px, 2vw, 24px);
+}
 
-.categories-grid,
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 22px;
+  gap: clamp(18px, 2vw, 26px);
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes cinematicZoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+
+  .hero-slider {
+    width: 50%;
+  }
+
 }
 
 /* ================= MOBILE ================= */
 
-@media(max-width:900px){
+@media (max-width: 768px) {
 
-  .hero-light {
-    grid-template-columns: 1fr;
-    padding: 50px 6%;
-    gap: 30px;
+  .hero-main {
+    padding: 28px;
   }
 
-  .hero-image {
-    height: 260px;
+  .hero-slider {
+    width: 100%;
+    opacity: 0.25;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+}
+
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 480px) {
+
+  .hero-main {
+    min-height: 260px;
+  }
+
+  .hero-slider {
+    opacity: 0.2;
   }
 
 }

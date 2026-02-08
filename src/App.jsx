@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 import WhatsAppFAB from "./components/WhatsAppFAB";
 import HomePage from "./pages/HomePage";
 import CategoryPage from "./pages/CategoryPage";
+import AboutPage from "./pages/AboutPage";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
       <main className="app-main">
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage/>}/>
           <Route path="/category/:slug" element={<CategoryPage />} />
         </Routes>
       </main>

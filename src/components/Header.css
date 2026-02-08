@@ -1,13 +1,24 @@
+/* ================= GLOBAL SAFETY ================= */
 
+.header,
+.nav,
+.topbar {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* ================= TOPBAR ================= */
 
 .topbar-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(14px, 4vw, 28px);
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
+
   gap: 8px;
 }
 
@@ -17,7 +28,10 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
+
   font-weight: 500;
+  font-size: clamp(12px, 1vw, 14px);
+
   transition: color var(--t);
 }
 
@@ -25,96 +39,114 @@
   color: #ffb347;
 }
 
+/* ================= HEADER ================= */
+
 .header {
   background: var(--wh);
   border-bottom: 1px solid var(--bd);
+
   position: sticky;
   top: 0;
   z-index: 100;
+
   box-shadow: 0 1px 8px rgba(0, 0, 0, 0.04);
 }
 
 .header-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+
+  padding: 0 clamp(16px, 4vw, 32px);
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
-  gap: 24px;
+
+  height: clamp(60px, 6vw, 76px);
+
+  gap: clamp(10px, 2vw, 24px);
 }
+
+/* ================= LOGO ================= */
 
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: clamp(6px, 1vw, 12px);
+
   text-decoration: none;
   flex-shrink: 0;
 }
 
-.logo-mark {
-  width: 44px;
-  height: 44px;
-  background: linear-gradient(135deg, var(--pr), var(--prd));
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-family: "Playfair Display", serif;
-  font-weight: 800;
-  font-size: 20px;
+.logo-img {
+  height: clamp(30px, 3vw, 46px);
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
 }
 
 .logo-text {
   font-family: "Roboto", serif;
   font-weight: 700;
-  font-size: 20px;
+  font-size: clamp(16px, 1.6vw, 20px);
   color: var(--dk);
-  line-height: 1.1;
 }
 
 .logo-sub {
-  font-size: 10px;
+  font-size: clamp(8px, 0.7vw, 11px);
   color: var(--txm);
   text-transform: uppercase;
-  letter-spacing: 2px;
-  font-weight: 500;
+  letter-spacing: 1.5px;
 }
+
+/* ================= PHONE ================= */
 
 .header-phone {
   display: flex;
   align-items: center;
   gap: 8px;
+
   color: var(--dk);
   text-decoration: none;
+
   font-weight: 600;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 15px);
+
   white-space: nowrap;
   flex-shrink: 0;
 }
+
+/* ================= MOBILE TOGGLE ================= */
 
 .mobile-toggle {
   display: none;
   background: none;
   border: none;
+
   color: var(--dk);
   cursor: pointer;
-  padding: 8px;
+  padding: 6px;
 }
+
+/* ================= NAV ================= */
 
 .nav {
   background: var(--ac);
+  width: 100%;
+  overflow: hidden;
 }
 
 .nav-inner {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+
+  padding: 0 clamp(10px, 3vw, 24px);
+
   display: flex;
   align-items: center;
-  gap: 0;
+
+  gap: clamp(6px, 1vw, 12px);
+
   overflow-x: auto;
   scrollbar-width: none;
 }
@@ -123,15 +155,21 @@
   display: none;
 }
 
+/* ================= NAV ITEMS ================= */
+
 .nav-item {
-  padding: 14px 20px;
+  padding: clamp(10px, 1.2vw, 16px) clamp(14px, 2vw, 24px);
+
   color: white;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 15px);
   font-weight: 500;
+
   cursor: pointer;
   white-space: nowrap;
+
   transition: background var(--t);
   text-decoration: none;
+
   position: relative;
 }
 
@@ -144,8 +182,9 @@
   content: "";
   position: absolute;
   bottom: 0;
-  left: 20px;
-  right: 20px;
+  left: 18px;
+  right: 18px;
+
   height: 3px;
   background: var(--pr);
   border-radius: 3px 3px 0 0;
@@ -156,7 +195,20 @@
   font-weight: 600;
 }
 
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+
+  .header-phone {
+    display: none;
+  }
+
+}
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 768px) {
+
   .topbar {
     display: none;
   }
@@ -170,28 +222,17 @@
   }
 
   .header-inner {
-    height: 64px;
+    height: clamp(56px, 12vw, 64px);
   }
-}
-.logo {
-  display: flex;
-  align-items: center;
-}
-.logo-img {
-  height: 42px;
-  width: auto;
 
-  object-fit: contain;
+}
 
-  transition: transform 0.2s ease;
-}
-@media (max-width: 1100px) {
-  .logo-img {
-    height: 38px;
+/* ================= SMALL MOBILE ================= */
+
+@media (max-width: 420px) {
+
+  .logo-text {
+    display: none;
   }
-}
-@media (max-width: 600px) {
-  .logo-img {
-    height: 34px;
-  }
+
 }
