@@ -13,7 +13,7 @@ const PRODUCT_DATA = {
             name: "Mozzarella Diced",
             brand: "Go Cheese",
             size: "2kg",
-            img: "https://images.unsplash.com/photo-1634487359989-3e90c9432133?w=300&h=300&fit=crop",
+            img: "https://i.postimg.cc/DzdJHr87/Mozerella-block-200g-2-(1).png",
           },
           {
             name: "Mozzarella Diced",
