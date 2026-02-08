@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Playfair+Display:wght@600;700;800&display=swap");
+
+:root {
+  --pr: #f7941d;
+  --prd: #e07a08;
+  --dk: #1a1a1a;
+  --dkr: #0f0f0f;
+  --lt: #fff9f2;
+  --wh: #ffffff;
+  --ac: #1b9c4f;
+  --acd: #148a3f;
+  --tx: #2d2d2d;
+  --txl: #6b6b6b;
+  --txm: #999999;
+  --bd: #eaeaea;
+  --r: 12px;
+  --rl: 20px;
+  --t: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background: var(--lt);
+  color: var(--tx);
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-main {
+  flex: 1;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.1s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.2s; }
+.delay-5 { animation-delay: 0.25s; }
+.delay-6 { animation-delay: 0.3s; }

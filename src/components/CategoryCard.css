@@ -1,0 +1,92 @@
+/* ===== CARD ===== */
+
+.category-modern-card {
+  position: relative;
+  display: block;
+
+  height: 220px;                 /* ⭐ Fixed tile height */
+
+  border-radius: 18px;
+  overflow: hidden;
+
+  text-decoration: none;
+  color: white;
+
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+
+  transition: all 0.3s ease;
+}
+
+/* Hover */
+
+.category-modern-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* ===== IMAGE FULL COVER ===== */
+
+.category-image-wrap {
+  position: absolute;
+  inset: 0;                      /* ⭐ Fill full card */
+}
+
+.category-image-wrap img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;             /* ⭐ KEY LINE */
+  transition: transform 0.5s ease;
+}
+
+/* Optional subtle zoom */
+
+.category-modern-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ===== DARK GRADIENT FOR TEXT READABILITY ===== */
+
+.category-modern-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55),
+    rgba(0,0,0,0.1),
+    transparent
+  );
+}
+
+/* ===== TEXT BOTTOM CENTER ===== */
+
+.category-text {
+  position: absolute;
+
+  left: 50%;
+  bottom: 18px;
+
+  transform: translateX(-50%);
+
+  text-align: center;
+  z-index: 2;
+
+  width: 90%;
+}
+
+/* Title */
+
+.category-text h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* Subtitle */
+
+.category-text p {
+  font-size: 13px;
+  opacity: 0.9;
+}

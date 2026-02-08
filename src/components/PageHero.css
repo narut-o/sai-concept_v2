@@ -1,0 +1,62 @@
+/* ===== THIN HERO ===== */
+
+.thin-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  height: 180px;
+  padding: 20px 6%;
+
+  background: #f8f9fb;
+  border-bottom: 1px solid #eee;
+
+  align-items: center;
+}
+
+/* LEFT TEXT */
+
+.thin-hero-left h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: #111;
+}
+
+.thin-hero-left p {
+  font-size: 14px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* RIGHT IMAGE */
+
+.thin-hero-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.thin-hero-right img {
+  height: 140px;
+  width: auto;
+  object-fit: contain;
+
+  transition: opacity 0.35s ease;
+}
+
+/* Fade */
+
+.fade-in { opacity: 1; }
+.fade-out { opacity: 0; }
+
+/* MOBILE */
+
+@media(max-width:900px){
+  .thin-hero {
+    grid-template-columns: 1fr;
+    height: auto;
+    gap: 20px;
+  }
+
+  .thin-hero-right {
+    justify-content: flex-start;
+  }
+}

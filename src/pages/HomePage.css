@@ -1,0 +1,174 @@
+/* ================= HERO ================= */
+
+.hero-light {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 420px;
+
+  padding: 70px 6%;
+  background: #ffffff;
+}
+
+/* LEFT */
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 520px;
+}
+
+.hero-badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+
+  background: #fff3e8;
+  color: #ff7a00;
+
+  font-size: 13px;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: clamp(36px,4vw,52px);
+  font-weight: 700;
+  line-height: 1.1;
+
+  margin-bottom: 16px;
+  color: #111;
+}
+
+.hero-title span {
+  color: #ff7a00;
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* BUTTONS */
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* WhatsApp Primary */
+
+.hero-cta {
+  padding: 10px 22px;
+  border-radius: 10px;
+
+  background: #ff7a00;
+  color: white;
+
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+
+  transition: all 0.25s ease;
+}
+
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,122,0,0.25);
+}
+
+/* About Secondary */
+
+.hero-about-btn {
+  padding: 10px 22px;
+  border-radius: 10px;
+
+  border: 1.5px solid #ff7a00;
+  color: #ff7a00;
+
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+
+  transition: all 0.25s ease;
+}
+
+.hero-about-btn:hover {
+  background: #ff7a00;
+  color: white;
+
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255,122,0,0.2);
+}
+
+/* RIGHT */
+
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  height: 340px;
+
+  object-fit: cover;
+  border-radius: 16px;
+
+  box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+
+  transition: opacity 0.4s ease;
+}
+
+/* ================= SECTION ================= */
+
+.section {
+  padding: 70px 6%;
+  background: #fafafa;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #111;
+}
+
+.section-count {
+  font-size: 14px;
+  color: #777;
+}
+
+/* ================= GRID ================= */
+
+.categories-grid,
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 22px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .hero-light {
+    grid-template-columns: 1fr;
+    padding: 50px 6%;
+    gap: 30px;
+  }
+
+  .hero-image {
+    height: 260px;
+  }
+
+}

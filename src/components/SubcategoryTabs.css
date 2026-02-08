@@ -1,0 +1,41 @@
+.sub-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.sub-tab {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 2px solid var(--bd);
+  background: var(--wh);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--t);
+  color: var(--tx);
+}
+
+.sub-tab:hover {
+  border-color: var(--pr);
+}
+
+.sub-tab.active {
+  background: var(--pr);
+  border-color: var(--pr);
+  color: white;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .sub-tabs {
+    gap: 6px;
+  }
+
+  .sub-tab {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}

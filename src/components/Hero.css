@@ -1,0 +1,256 @@
+/* =========================
+   HERO MAIN CONTAINER
+========================= */
+
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 520px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   BACKGROUND SLIDES
+========================= */
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0;
+  transform: scale(1.08);
+
+  transition:
+    opacity 1.4s ease,
+    transform 6s ease;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* =========================
+   PREMIUM OVERLAY
+========================= */
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    120deg,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.45),
+    rgba(0, 0, 0, 0.75)
+  );
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  z-index: 1;
+}
+
+/* =========================
+   HERO CONTENT
+========================= */
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 900px;
+  width: 100%;
+
+  margin: auto;
+  padding: 60px 20px;
+
+  text-align: center;
+  color: #ffffff;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+.hero-content h1 {
+  font-size: clamp(38px, 5vw, 64px);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+
+  margin-bottom: 18px;
+}
+
+.hero-content p {
+  font-size: 20px;
+  opacity: 0.92;
+  line-height: 1.6;
+
+  max-width: 700px;
+  margin: 0 auto 32px auto;
+}
+
+/* =========================
+   BUTTON GROUP
+========================= */
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* =========================
+   BASE BUTTON
+========================= */
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.35s ease;
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  cursor: pointer;
+}
+
+/* =========================
+   PRIMARY PREMIUM BUTTON
+========================= */
+
+.btn.primary {
+  background: linear-gradient(
+    135deg,
+    #ff7a00,
+    #ff9a2f
+  );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 10px 25px rgba(255, 122, 0, 0.35),
+    0 2px 8px rgba(255, 122, 0, 0.2);
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 16px 40px rgba(255, 122, 0, 0.45),
+    0 6px 18px rgba(255, 122, 0, 0.35);
+}
+
+/* =========================
+   SECONDARY GLASS BUTTON
+========================= */
+
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.08);
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  color: #ffffff;
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* =========================
+   OPTIONAL: HERO FADE IN
+========================= */
+
+.hero-content {
+  animation: heroFade 1.2s ease forwards;
+}
+
+@keyframes heroFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media (max-width: 1024px) {
+  .hero {
+    height: 75vh;
+  }
+
+  .hero-content {
+    padding: 50px 18px;
+  }
+
+  .hero-content p {
+    font-size: 18px;
+  }
+}
+
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .hero {
+    height: 70vh;
+    min-height: 480px;
+  }
+
+  .hero-content h1 {
+    font-size: clamp(30px, 7vw, 42px);
+  }
+
+  .hero-content p {
+    font-size: 16px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 260px;
+  }
+}
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media (max-width: 480px) {
+  .hero {
+    height: 65vh;
+    min-height: 420px;
+  }
+
+  .hero-content {
+    padding: 40px 16px;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+  }
+}
